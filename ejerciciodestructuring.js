@@ -69,15 +69,67 @@ let pokimons = { ...pokemon, ...pikachu };
 console.log(pokimons); //solo se ve el pikachu por lo visto si pusiera al pikachu name2, type2 etc si saldrian los dos pero al tener mismos nombres de propiedades no
 
 
-// Escribe una función llamada sumEveryOther que pueda recibir cualquier cantidad de números 
-// y devuelva la suma de todos. Asi:
+// Escribe una función llamada sumEveryOther que pueda recibir cualquier cantidad de números y devuelva la suma de todos. Asi:
 //   sumEveryOther(6, 8, 2, 3, 1); daria 20
 //   sumEveryOther(11, 3, 12); daria 26 
 
-function sumEveryOther (){
-    return //sumar todos los numeros que te pasen;
+
+function sumEveryOther(...arrayNumeros){
+
+    let sumar=0
+
+    for (let i=0; i<arrayNumeros.length; i++){
+
+        sumar+=arrayNumeros[i];
+    }
+
+    return console.log(sumar);
 }
 
+sumEveryOther(6, 8, 2, 3, 1);
+sumEveryOther(11, 3, 12);
 
 
+//Escribe una función llamada addOnlyNums que pueda recibir cualquier número de argumentos (incluyendo números y strings) y retorne la suma solo de los números.
+
+
+function addOnlyNums(...array){
+
+    let suma=0;
+
+    for (let i=0; i<array.length; i++){
+        
+        if(typeof array[i] === "number"){
+
+            suma+=array[i]
+        }
+    }
+    return suma;
+}
+
+console.log(addOnlyNums(1, 'perro', 2, 4)); //7 
+
+
+//Escribe una función llamada countTheArgs que pueda recibir cualquier número de argumentos y devuelva un número que indique cuántos argumentos ha recibido.
+
+function countTheArgs(...array){
+
+    return array.length;
+}
+
+console.log(countTheArgs('gato', 'perro')) //2
+console.log(countTheArgs('gato', 'perro', 'pollo', 'oso')) //4
+
+//Escribe una función llamada combineTwoArrays que reciba dos array como argumentos y devuelva solo un array que combine los dos (usando spread operator).
+
+let array1=[1,2,5,7,8];
+let array2=[6,2,9,1];
+
+console.log(combineTwoArrays(array1,array2));
+
+function combineTwoArrays(array1,array2){
+
+    return [...array1, ...array2];
+
+}
   
